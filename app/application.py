@@ -18,7 +18,6 @@ def main() -> None:
 
     application = Application(spark=spark)
 
-    application.read_json(filename=args.json_string)
 
     print("end")
 
