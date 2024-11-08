@@ -7,37 +7,27 @@ This project template attend to show:
 - using PySpark structured streaming (Spark SQL). We do not use DStream (RDD)
 
 ## Prerequisites
-Install KIND
 Install DOCKER DESKTOP (for getting locally K8S) and run it with K8S enabled
-Install HELM
-Install Kafka locally in MacOs
 
 ## Enable venv
 `source .venv/bin/activate`
 
 
-## Infrastructure 
+## Infrastructure : 
+### setup and start Kafka local dev cluster
+`docker-compose -f infrastructure/docker-compose.yaml up -d`
 
-### Kafka cluster 
-We use Docker.
-`cd infrastructure`
-`docker-compose up -d`
+### Access the Kafka container 
+`docker exec -it kafka bash`
 
-Connect to Kafka:
-`localhost:9093`
+### Create a topic 
+`/usr/bin/kafka-topics --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1`
 
-This setup uses Bitnami’s Kafka and Zookeeper images with anonymous login for easy local development.
+### Send messages to Kafka (producer)
+`/usr/bin/kafka-console-producer --broker-list localhost:9092 --topic test-topic`
 
-### Let's create a topic:
-Install locally Kafka client. 
-`brew install kafka`
-Find the container name : `docker ps`
-
-Create the topic: 
-`docker exec -it infrastructure-kafka-1 \ 
-    kafka-topics.sh --create --topic my-topic \
-    --bootstrap-server localhost:9092 \ 
-    --partitions 1 --replication-factor 1`
+###  Read Messages from Kafka (Consuming) 
+`/usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test-topic --from-beginning`
 
 
 
