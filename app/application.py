@@ -11,12 +11,13 @@ def main() -> None:
     spark = spark_utils.get_spark_session("ldi")
 
     # read catalog path to .CSV as argument & path to JSON with uc2_models_process list to be processed
-    parser = argparse.ArgumentParser()
+    # parser = argparse.ArgumentParser()
     # parser.add_argument("--json_string", required=True)  # a string containing a JSON
-    parser.add_argument("--stage", required=False)
-    args = parser.parse_args()
+    # parser.add_argument("--stage", required=False)
+    # args = parser.parse_args()
 
     application = Application(spark=spark)
+
 
     print("end")
 
