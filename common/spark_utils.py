@@ -4,10 +4,14 @@ from pyspark.sql import SparkSession
 def get_spark_session(app_name="ldi"):
     try:
         # Try to get the existing Spark session
-        spark = SparkSession.builder \
-                .appName("ldi") \
-                .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1') \
-                .getOrCreate()
+        spark = (
+            SparkSession.builder.appName("ldi")
+            .config(
+                "spark.jars.packages",
+                "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1",
+            )
+            .getOrCreate()
+        )
     except Exception as e:
         print("Error getting existing Spark session:", e)
         spark = SparkSession.builder.appName(app_name).getOrCreate()
