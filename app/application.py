@@ -1,4 +1,7 @@
 import argparse
+import os
+from pathlib import Path
+
 from pyspark.sql import SparkSession, DataFrame
 from common.ldi_logger import LdiLogger
 from common import spark_utils
@@ -28,8 +31,13 @@ class Application:
 
     def read_json(self, filename: str) -> DataFrame:
         print(f"read file {filename}")
-        path = "../data/" + str(filename)
-        df = self._spark.read.json(str(path), multiLine=True)
+
+        # Set working directory to the directory of the script
+        os.chdir(os.path.dirname(os.path.realpath(__file__)))
+        # Define the relative path
+        relative_path = Path('data') / filename
+
+        df = self._spark.read.json(str(relative_path), multiLine=True)
         print(df.head(n=100))
         return df
 
