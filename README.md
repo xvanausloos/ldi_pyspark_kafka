@@ -21,22 +21,29 @@ Install DOCKER DESKTOP (for getting locally K8S) and run it with K8S enabled
 `docker exec -it kafka bash`
 
 ### Create a topic 
-`/usr/bin/kafka-topics --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1`
+```
+/usr/bin/kafka-topics --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
 
 ### Send messages to Kafka (producer)
-`/usr/bin/kafka-console-producer --broker-list localhost:9092 --topic test-topic`
+```
+/usr/bin/kafka-console-producer --broker-list localhost:9092 --topic test-topic
+```
 
 ###  Read Messages from Kafka (Consuming) 
-`/usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test-topic --from-beginning`
+```
+/usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+```
+
+Tested on 30/11/24 it works
 
 
-Status : Spark works in it
-
-## Run scripts
+## Run Spark scripts
 
 `python -m app.application`
 or from Pycharm (after setup of working dir to project root)
 
+Tested on 30/11/24 works
 
 
 
