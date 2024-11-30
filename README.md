@@ -32,5 +32,12 @@ Install DOCKER DESKTOP (for getting locally K8S) and run it with K8S enabled
 
 Status : Spark works in it
 
+## Run scripts
+
+`python -m app.application`
+or from Pycharm (after setup of working dir to project root)
+
+
+
 
 
