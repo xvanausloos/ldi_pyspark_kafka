@@ -17,8 +17,7 @@ def main() -> None:
     # args = parser.parse_args()
 
     application = Application(spark=spark)
-
-
+    application.read_json("drivers.json")
     print("end")
 
 
@@ -29,7 +28,7 @@ class Application:
 
     def read_json(self, filename: str) -> DataFrame:
         print(f"read file {filename}")
-        path = "data/" + str(filename)
+        path = "../data/" + str(filename)
         df = self._spark.read.json(str(path), multiLine=True)
         print(df.head(n=100))
         return df

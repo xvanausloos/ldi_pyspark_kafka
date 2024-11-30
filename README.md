@@ -30,7 +30,7 @@ Install DOCKER DESKTOP (for getting locally K8S) and run it with K8S enabled
 `/usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test-topic --from-beginning`
 
 
-
+Status : Spark works in it
 
 
 
