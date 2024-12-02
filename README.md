@@ -45,6 +45,11 @@ or from Pycharm (after setup of working dir to project root)
 
 Tested on 30/11/24 works
 
+## AWS S3
+See Notions for detailed instructions
+- check Spark and Hadoop versions
+- copy in $SPARK_HOME/jars the proper libs
+
 
 
 
