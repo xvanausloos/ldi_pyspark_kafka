@@ -51,7 +51,8 @@ See Notions for detailed instructions
 - copy in $SPARK_HOME/jars the proper libs:
 ```
 aws-java-sdk-bundle-1.11.901.jar
-aws-java-sdk-core-1.11.901.jar
 hadoop-aws-3.3.2.jar
 ```
+
+NB: The JARS in `.venv...../pyspark/jars` are not considered when running PySpark from the .venv enable..
 
