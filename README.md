@@ -40,7 +40,9 @@ Tested on 30/11/24 it works
 
 ## Run Spark scripts
 
-`python -m app.application`
+```
+python -m app.application --catalog_path='data/cat_mini.csv'
+```
 or from Pycharm (after setup of working dir to project root)
 
 Tested on 30/11/24 works
