@@ -43,7 +43,8 @@ class Application:
 
 
     def process_catalog(self, catalog_path: str) -> None:
-       df = spark.read.csv(catalog_path)
+        df = spark.read.csv(catalog_path)
+        df.show()
 
     def flatten_output_data(self, df_results: DataFrame) -> DataFrame:
         """ Take a Pyspark Dataframe having a column OUTPUT_DATA and generate new columns using STRUCT string

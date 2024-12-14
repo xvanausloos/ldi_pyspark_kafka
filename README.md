@@ -40,6 +40,11 @@ Tested on 30/11/24 it works
 
 ## Run Spark scripts
 
+### Enable venv
+```
+source .venv/bin/activate
+```
+
 ```
 python -m app.application --catalog_path='data/cat_mini.csv'
 ```
